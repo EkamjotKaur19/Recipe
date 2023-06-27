@@ -1,18 +1,28 @@
-import React from 'react';
-import photo from '../Images/img1.webp'
+import React from 'react'
+import img from '../assets/a2.jpg'
 
 export default function About() {
   return (
-    <div>
-        <div id="about">
-            <div className="about-text">
-                <h1>Let's Cook</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti consequuntur at saepe similique ad labore odio quaerat eveniet, maiores, magni, enim error delectus consequatur temporibus veritatis! Voluptatibus, eius soluta. Delectus porro repudiandae vero asperiores fuga accusamus veniam modi tenetur facere voluptate, iusto neque hic? Consectetur similique fugit vero impedit distinctio.</p>
-                <button>Read More</button>
+    <div id="about" className='main-abt' >
+        <div className="parents-abt">
+        
+            <div className="child title-abt">
+                <h3 className='hero-title'><strong className='sp-text'>About Us</strong></h3>
+
+                <p className='abt-text' >Welcome to our recipe search website! We are passionate about food and dedicated to providing a wide range of delicious recipes from various cuisines. Whether you are a cooking enthusiast or simply looking for inspiration for your next meal, you've come to the right place.
+
+</p>
+<p className='abt-text'>
+At our website, you'll find an extensive collection of mouth-watering recipes that cater to different tastes and dietary preferences. From quick and easy weeknight meals to elaborate dishes for special occasions, we have something for everyone..
+</p>
+<p className='abt-text'>We strive to provide accurate and detailed recipe instructions, along with helpful tips and suggestions to enhance your cooking experience. Whether you're a seasoned chef or a beginner in the kitchen, our goal is to inspire and empower you to create delicious meals that will delight your taste buds.
+</p>
+
             </div>
-            <div className="about-image">
-                <img src={photo} alt=""/>
+            <div className="child">
+                <img src={img} alt='' className='img-banner'/>
             </div>
+            
         </div>
     </div>
   )

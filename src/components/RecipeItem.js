@@ -1,33 +1,41 @@
 import React, {useState} from 'react'
-import Ingredient from './Ingredient';
-
-
+import Dialog from './Dialog';
 
 export default function RecipeItem(props) {
     const [show,setShow] = useState(false);
+    const [Open, setOpen] = useState(false)
     let {recipe} = props;
     const [count, setCount] = useState(1);
-
-    const handleShow = (count) => {
-        count%2 === 0 ? setShow(false) : setShow(true);
-        setCount(count+1);
-    };
+    const handleOpen = () => {
+        setOpen(!Open)
+    }
   return (
     <>
+
         
         <div className="recipe">
+            
+            
             <img src={recipe.image} alt=""  />
             <span className="dishName">{recipe.label}</span>
-            <div className="ing" onClick={() => handleShow(count)}>Ingredients</div>
+            <div className="ing" onClick={() => handleOpen()}>Ingredients</div>
+
+            
                 
-                {show ? 
-                    <Ingredient key={recipe.label} recipe={recipe} />
-                    : <h1></h1>
-                }
+                
 
             
             <span className="see" onClick={() => window.open(recipe.url)}>See Recipe</span>
         </div>
+
+        {Open &&  <>
+            <Dialog recipe={recipe} />
+
+
+        </>
+        }
+
+
     </>
   )
 }

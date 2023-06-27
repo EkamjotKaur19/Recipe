@@ -22,7 +22,8 @@ export default function Footer() {
         </ul>
 
         <div className="foot text-center p-3"  >
-          © 2022 Copyright : 
+          © 2023 Copyright : 
+          
           <a className="text" href="/" > Let'sCook.com</a>
         </div>
         
