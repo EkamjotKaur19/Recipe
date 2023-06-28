@@ -34,6 +34,11 @@ body{
   list-style-type: none;
 }
 
+.navv{
+  text-decoration: none;
+  color:white
+}
+
 nav ul li {
   font-family: 'Bebas Neue';
   margin-right: 0;
@@ -44,6 +49,7 @@ nav ul li {
   font-size: 1.4rem;
   letter-spacing: 1.5px;
   text-transform: uppercase;
+  text-decoration: none;
   font-weight: 500;
   color:#ffffff;
   letter-spacing: 1px;
@@ -90,6 +96,7 @@ nav ul li:hover{
     z-index:10
   }
 
+
   .nav-elements.active {
     width: 270px;
   }
@@ -103,6 +110,10 @@ nav ul li:hover{
     color:#eb3300;
     margin-right: unset;
     margin-top: 22px;
+  }
+  .navv{
+    text-decoration: none;
+    color:#eb3300;
   }
 }
 
@@ -213,6 +224,24 @@ nav ul li:hover{
 
 .see:hover{
   background-color: red;
+  color:white;
+}
+
+.wish{
+  font-family: 'Alfa Slab';
+  border-radius: 10px;
+  border:2px solid rgb(246, 136, 226);
+  font-size: 1.2rem;
+  padding:5px;
+  width:200px;
+  text-align:center;
+  color:#151616;
+  cursor:pointer;
+  margin: 10px auto;
+}
+
+.wish:hover{
+  background-color:rgb(246, 136, 226);
   color:white;
 }
 /*
@@ -640,4 +669,83 @@ color:#ffffff
   .inside-contact input, .inside-contact textarea{
       background-color:#fff;
   }
+}
+
+/*Login */
+.login {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url('./assets/l2.jpg');
+  background-size: cover;
+  background-position: center;
+}
+.login__container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  background-color: #ffffff;
+ 
+  padding: 30px;
+
+}
+.login__textBox {
+  padding: 10px;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+.login__btn {
+  padding: 10px;
+  font-size: 18px;
+  margin-bottom: 10px;
+  border: none;
+  color: white;
+  background-color: black;
+}
+.login__google {
+  background-color: #4285f4;
+}
+.login div {
+  margin-top: 7px;
+}
+
+/*Register */
+
+.register {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url('./assets/r2.jpg');
+  background-size: cover;
+  background-position: center;
+}
+.register__container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  background-color: #dcdcdc;
+  padding: 30px;
+}
+.register__textBox {
+  padding: 10px;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+.register__btn {
+  padding: 10px;
+  font-size: 18px;
+  margin-bottom: 10px;
+  border: none;
+  color: white;
+  background-color: black;
+}
+.register__google {
+  background-color: #4285f4;
+}
+.register div {
+  margin-top: 7px;
 }
