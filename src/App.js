@@ -15,6 +15,7 @@ import Saved from './components/Saved';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from './firebase';
 import Register from './components/Register';
+import Reset from './components/Reset';
 
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
           <Route path='/contact' exact element={<Contact />} />
           <Route path='/register' exact element={<Register />} />
           <Route path='/savedpage' exact element={<Saved />} />
+          <Route path='/reset' exact element={<Reset />} />
         </Routes>
         </div>
       </Router>

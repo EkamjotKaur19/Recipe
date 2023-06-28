@@ -24,7 +24,7 @@ export default function RecipeItem(props) {
         const userId = user.uid;
         const userRef = doc(db, "users", userId);
         console.log(userRef)
-        await updateDoc(userRef, {
+        await setDoc(userRef, {
           uid:user.uid,
           name: user.displayName,
           authProvider: "google",

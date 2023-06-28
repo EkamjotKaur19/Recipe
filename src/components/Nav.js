@@ -61,13 +61,16 @@ const Nav = () => {
           <div className={`nav-elements  ${showNavbar && 'active'}`}>
             <ul>
               {user ? 
+              <>
             <li onClick={logout} className='navv'>
               Logout
-              </li> : 
-              <li onClick={handleLogin} >Login</li> }
+              </li>
               <li onClick={handleSaved} >
                Saved
               </li>
+              </> : 
+              <li onClick={handleLogin} >Login</li> }
+              
               <li>
               <NavLink to="/" className='navv' >Home</NavLink>
               </li>

@@ -13,7 +13,7 @@ export default function Saved() {
     <div className="recipe-container">
           {Array.isArray(list) && list.length > 0 ? (list.map((recipe) => {
             return <RecipeItem  recipe={recipe}/>
-          }) ): <h1>No saved Recipes</h1>
+          }) ): <h3 className="not-saved">No Saved Recipe</h3>
           }
         </div>
   )

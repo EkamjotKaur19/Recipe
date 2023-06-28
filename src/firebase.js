@@ -16,6 +16,7 @@ import {
   where,
   addDoc,
 } from "firebase/firestore";
+import Notifications from "rc-notification/es/Notifications";
 const firebaseConfig = {
     apiKey: "AIzaSyC0KjoI0OId-YeOf8owFE_Ps7AQuDBVY4g",
     authDomain: "let-s-cook-3b3dd.firebaseapp.com",
@@ -44,6 +45,7 @@ const signInWithGoogle = async () => {
         wishlist: []
       });
     }
+    alert('User Logged in')
   } catch (err) {
     console.error(err);
     alert(err.message);
@@ -52,6 +54,7 @@ const signInWithGoogle = async () => {
 const logInWithEmailAndPassword = async (email, password) => {
   try {
     await signInWithEmailAndPassword(auth, email, password);
+    alert('User Logged in')
   } catch (err) {
     console.error(err);
     alert('Unregistered user or Invalid Credentials');
@@ -68,6 +71,7 @@ const registerWithEmailAndPassword = async (name, email, password) => {
       email,
       wishlist:[]
     });
+    alert('User Registered Successfully')
   } catch (err) {
     console.error(err);
     alert(err.message);
@@ -84,6 +88,7 @@ const sendPasswordReset = async (email) => {
 };
 const logout = () => {
   signOut(auth);
+  alert('User Logged Out!')
 };
 export {
   auth,
@@ -93,6 +98,7 @@ export {
   logInWithEmailAndPassword,
   registerWithEmailAndPassword,
   sendPasswordReset,
+  sendPasswordResetEmail,
   logout,
   googleProvider
 };
