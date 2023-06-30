@@ -1,8 +1,6 @@
 import React from 'react'
 import { useLocation } from 'react-router-dom';
 import RecipeItem from './RecipeItem'
-import Failure from './Failure'
-
 export default function Saved() {
     const location = useLocation();
   const list = location.state && location.state.savedRecipes ? location.state.savedRecipes : [];

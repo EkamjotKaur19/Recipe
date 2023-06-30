@@ -6,7 +6,7 @@ import { auth, sendPasswordResetEmail } from "../firebase"
 
 function Reset() {
   const [email, setEmail] = useState("");
-  const [user, loading, error] = useAuthState(auth);
+  const [user, loading] = useAuthState(auth);
   const navigate = useNavigate();
   useEffect(() => {
     if (loading) return;

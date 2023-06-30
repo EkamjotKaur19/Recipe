@@ -2,9 +2,8 @@ import React, {useState} from 'react'
 import Dialog from './Dialog';
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, db } from "../firebase";
-import { getFirestore, collection, doc, setDoc, getDoc, arrayUnion, updateDoc, arrayRemove } from "firebase/firestore";
+import { getFirestore, collection, doc, setDoc,  arrayUnion, updateDoc, arrayRemove } from "firebase/firestore";
 import 'react-toastify/dist/ReactToastify.css';
-import { toast } from 'react-toastify';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 export default function RecipeItem(props) {

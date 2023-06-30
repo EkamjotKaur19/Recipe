@@ -16,7 +16,7 @@ import {
   where,
   addDoc,
 } from "firebase/firestore";
-import Notifications from "rc-notification/es/Notifications";
+
 const firebaseConfig = {
     apiKey: "AIzaSyC0KjoI0OId-YeOf8owFE_Ps7AQuDBVY4g",
     authDomain: "let-s-cook-3b3dd.firebaseapp.com",
@@ -45,6 +45,7 @@ const signInWithGoogle = async () => {
         wishlist: []
       });
     }
+    
     alert('User Logged in')
   } catch (err) {
     console.error(err);
