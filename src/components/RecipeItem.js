@@ -11,14 +11,13 @@ export default function RecipeItem(props) {
   const [user] = useAuthState(auth);
     const [Open, setOpen] = useState(false)
     let {recipe} = props;
-    const navigate = useNavigate()
     console.log(recipe)
+    const navigate = useNavigate()
     const handleOpen = () => {
         setOpen(!Open)
     }
 
     const handleWish = async () => {
-      console.log("wish");
       if (user) {
         const userId = user.uid;
         const userRef = doc(db, "users", userId);
@@ -34,15 +33,12 @@ export default function RecipeItem(props) {
       } else {
         alert('You have to LogIn to save Favourite recipes')
         navigate('/login')
-        console.log("User not logged in.");
       }
     }
     const handleNotWish = async () => {
-      console.log("wish");
       if (user) {
         const userId = user.uid;
         const userRef = doc(db, "users", userId);
-        console.log(userRef)
         await updateDoc(userRef, {
           uid:user.uid,
           name: user.displayName,

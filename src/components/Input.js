@@ -11,6 +11,7 @@ export default function Input() {
     const [searchTerm, setSearchTerm]=useState('');
     const [search, setSearch] = useState(false)
     const [ loading, setLoading ] =useState(false)
+    const [selectedOption, setSelectedOption] = useState('');
     
     const [list, setList] = useState([]);
     const [timeoutId, setTimeoutId] = useState();
@@ -36,14 +37,29 @@ export default function Input() {
       event.preventDefault();
     }
 
+    const handleOptionChange = (event) => {
+      setSelectedOption(event.target.value);
+    };
+
   return (
     <>
         <div id="inp" className="search-box">
-          <div class="input-group" onSubmit={handleSubmit}>
-            <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" value={searchTerm} onChange={handleSearchTerm} />
-            <button type="button" class="btn btn-outline-primary">search</button>
+          <div className="input-group" onSubmit={handleSubmit}>
+            <input type="search" className="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" value={searchTerm} onChange={handleSearchTerm} />
+            <button type="button" className="btn btn-outline-primary">search</button>
+            
           </div>
         </div>
+        <div>
+      <label htmlFor="filter">Select Filter:</label>
+      <select id="filter" value={selectedOption} onChange={handleOptionChange}>
+        <option value="">All</option>
+        <option value="option1">Option 1</option>
+        <option value="option2">Option 2</option>
+        <option value="option3">Option 3</option>
+      </select>
+      {selectedOption && <p>Selected Option: {selectedOption}</p>}
+    </div>
 
         {loading && <Spinner />}
         
