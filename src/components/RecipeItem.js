@@ -6,18 +6,37 @@ import { getFirestore, collection, doc, setDoc,  arrayUnion, updateDoc, arrayRem
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate, useLocation } from 'react-router-dom';
 
+
 export default function RecipeItem(props) {
   const location = useLocation();
   const [user] = useAuthState(auth);
+  const [showShare, setShowShare] = useState(false);
     const [Open, setOpen] = useState(false)
     let {recipe} = props;
-    console.log(recipe)
     const navigate = useNavigate()
+    console.log(recipe)
     const handleOpen = () => {
         setOpen(!Open)
     }
+    const handleShowShare = () => {
+      setShowShare(!showShare)
+    };
+
+    const handleShare = () => {
+      if (navigator.share) {
+        navigator.share({
+          title: recipe.label,
+          url: recipe.url,
+        })
+          .then(() => console.log('Shared successfully'))
+          .catch((error) => console.error('Error sharing:', error));
+      } else {
+        console.log('Web Share API not supported');
+      }
+    };
 
     const handleWish = async () => {
+      console.log("wish");
       if (user) {
         const userId = user.uid;
         const userRef = doc(db, "users", userId);
@@ -33,12 +52,15 @@ export default function RecipeItem(props) {
       } else {
         alert('You have to LogIn to save Favourite recipes')
         navigate('/login')
+        console.log("User not logged in.");
       }
     }
     const handleNotWish = async () => {
+      console.log("wish");
       if (user) {
         const userId = user.uid;
         const userRef = doc(db, "users", userId);
+        console.log(userRef)
         await updateDoc(userRef, {
           uid:user.uid,
           name: user.displayName,
@@ -58,18 +80,26 @@ export default function RecipeItem(props) {
 
   return (
     <>
-        <div className="recipe">
-            <img src={recipe.image} alt=""  />
-            <span className="dishName">{recipe.label}</span>
-            <div className="ing" onClick={() => handleOpen()}>Ingredients</div>
-            <span className="see" onClick={() => window.open(recipe.url)}>See Recipe</span>
-            {location.pathname === '/savedpage' ? (
-        <button className="wish" onClick={handleNotWish}>
-          Remove from Saved
-        </button>
-      ) : <button className="wish" onClick={handleWish}>
-      Add to Saved
-    </button> }
+        <div className="recipe" onMouseEnter={handleShowShare} onMouseLeave={handleShowShare} >
+            <img src={recipe.image } alt=""  />  
+            <span className="dishName">{recipe.label.slice(0,35)}</span>
+              <div className="btn1">
+                <div className="ing" onClick={() => handleOpen()}>Ingredients</div>
+                <span className="see" onClick={() => window.open(recipe.url)}>See Recipe</span>
+              </div>
+              <div className="btn1">
+                <div className="ing2" onClick={handleShare} >Share</div>
+                {location.pathname === '/savedpage' ? (
+                <div className="see2" onClick={handleNotWish}>
+                  Remove Saved
+                </div>
+                ) : <div className="see2" onClick={handleWish}>
+                Add to Saved
+                </div> }
+              </div>
+            
+            
+            
         </div>
 
         {Open &&  <>
